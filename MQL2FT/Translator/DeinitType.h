@@ -1,0 +1,9 @@
+#pragma once
+
+enum DeinitType
+{
+	INT_DEINIT,
+	VOID_DEINIT,
+	VOID_ON_DEINIT,
+	DEINIIT_UNDEFINED
+};

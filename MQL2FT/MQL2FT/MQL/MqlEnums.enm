@@ -1,0 +1,65 @@
+namespace mql4
+{
+	std::vector<MqlEnum::Element> ENUM_APPLIED_PRICE::m_elems
+	{
+		MqlEnum::Element(0, "PRICE_CLOSE", "Close price"),
+		MqlEnum::Element(1, "PRICE_OPEN", "Open price"),
+		MqlEnum::Element(2, "PRICE_HIGH", "High price"),
+		MqlEnum::Element(3, "PRICE_LOW", "Low price"),
+		MqlEnum::Element(4, "PRICE_MEDIAN", "Median price"),
+		MqlEnum::Element(5, "PRICE_TYPICAL", "Typical price"),
+		MqlEnum::Element(6, "PRICE_WEIGHTED", "Weighed price")
+	};
+
+	std::vector<MqlEnum::Element> ENUM_MA_METHOD::m_elems
+	{
+		MqlEnum::Element(0, "MODE_SMA", "Simple"),
+		MqlEnum::Element(1, "MODE_EMA", "Exponential"),
+		MqlEnum::Element(2, "MODE_SMMA", "Smoothed"),
+		MqlEnum::Element(3, "MODE_LWMA", "Linear weighted")
+	};
+
+	std::vector<MqlEnum::Element> ENUM_LINE_STYLE::m_elems
+	{
+		MqlEnum::Element(0, "STYLE_SOLID", "Solid"),
+		MqlEnum::Element(1, "STYLE_DASH", "Dash"),
+		MqlEnum::Element(2, "STYLE_DOT", "Dot"),
+		MqlEnum::Element(3, "STYLE_DASHDOT", "DashDot"),
+		MqlEnum::Element(4, "STYLE_DASHDOTDOT", "DashDotDot")
+	};
+
+	std::vector<MqlEnum::Element> ENUM_TIMEFRAMES::m_elems
+	{
+		MqlEnum::Element(0, "PERIOD_CURRENT", "Current"),
+		MqlEnum::Element(1, "PERIOD_M1", "1 minute"),
+		MqlEnum::Element(5, "PERIOD_M5", "5 mins"),
+		MqlEnum::Element(15, "PERIOD_M15", "15 mins"),
+		MqlEnum::Element(30, "PERIOD_M30", "30 mins"),
+		MqlEnum::Element(60, "PERIOD_H1", "1 hour"),
+		MqlEnum::Element(240, "PERIOD_H4", "4 hours"),
+		MqlEnum::Element(1440, "PERIOD_D1", "1 day"),
+		MqlEnum::Element(10080, "PERIOD_W1", "1 week"),
+		MqlEnum::Element(43200, "PERIOD_MN1", "1 month")
+	};
+
+	std::vector<MqlEnum::Element> ENUM_DRAW_STYLE::m_elems
+	{
+		MqlEnum::Element(0, "DRAW_LINE", "Line"),
+		MqlEnum::Element(1, "DRAW_SECTION", "Section"),
+		MqlEnum::Element(2, "DRAW_HISTOGRAM", "Histogram"),
+		MqlEnum::Element(3, "DRAW_ARROW", "Arrow"),
+		MqlEnum::Element(4, "DRAW_ZIGZAG", "ZigZag"),
+		MqlEnum::Element(5, "DRAW_NONE", "None")
+	};
+
+	std::vector<MqlEnum::Element> ENUM_DAY_OF_WEEK::m_elems
+	{
+		MqlEnum::Element(0, "SUNDAY", "Sunday"),
+		MqlEnum::Element(1, "MONDAY", "Monday"),
+		MqlEnum::Element(2, "TUESDAY", "Tuesday"),
+		MqlEnum::Element(3, "WEDNESDAY", "Wednesday"),
+		MqlEnum::Element(4, "THURSDAY", "Thursday"),
+		MqlEnum::Element(5, "FRIDAY", "Friday"),
+		MqlEnum::Element(6, "SATURDAY", "Saturday")
+	};
+}

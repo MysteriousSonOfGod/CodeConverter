@@ -1,0 +1,10 @@
+#pragma once
+
+enum StartType
+{
+	INT_START,
+	VOID_START,
+	ON_TICK,
+	INT_ON_CALCULATE,
+	START_UNDEFINED
+};

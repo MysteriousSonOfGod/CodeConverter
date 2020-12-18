@@ -1,0 +1,39 @@
+CPP      = g++.exe
+RM       = rm.exe -f
+
+SRC     := MQL2FT.cpp $(wildcard MQL/*.cpp) $(wildcard MQL/**/*.cpp)
+OBJDIR   = obj/$(df)/$(iniT)/$(deinT)/$(stT)/$(isStrict)/$(onTimerT)/$(Hooking)/$(conv_debug)
+OBJ     := $(SRC:%.cpp=$(OBJDIR)/%.o)
+DEP     := $(OBJ:%.o=%.d)
+BIN      = MQL2FT.dll
+
+ARCH     = -m32
+STD      = -std=c++11
+LIBS     = -static-libgcc -lversion -lgdi32 $(ARCH)
+CPPFLAGS = -pipe -w $(STD) $(ARCH) -D __MINGW_USE_VC2005_COMPAT -D $(df) -D $(iniT) -D $(deinT) -D $(stT) -D $(isStrict) -D $(onTimerT) -D $(Hooking) -D $(conv_debug)
+DEF      = MQL2FT.def
+PCH_H    = MQL/pch.h
+PCH_GCH  = MQL/pch.h.gch
+
+.PHONY: all all-before clean mkdirs
+
+all-before: $(PCH_GCH) mkdirs
+
+all: clean all-before $(BIN)
+
+clean:
+	-${RM} $(BIN) $(DEF)
+
+mkdirs:
+	-@cmd /E:ON /C mkdir "$(subst /,\,$(OBJDIR))\MQL\Indicators" >nul 2>&1 || :
+
+$(BIN): $(OBJ)
+	$(CPP) -shared $^ -s -o $@ $(LIBS) -Wl,--output-def,$(DEF),--add-stdcall-alias
+
+$(PCH_GCH): $(PCH_H)
+	$(CPP) $(STD) $(ARCH) -w -o $@ $<
+
+-include $(DEP)
+
+$(OBJDIR)/%.o: %.cpp
+	$(CPP) $(CPPFLAGS) -MMD -c -o $@ $<
